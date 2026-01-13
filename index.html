@@ -5,244 +5,115 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>和田壮平のプロフィール</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;600;700&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --accent-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --rainbow-gradient: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c, #ffd86f, #4facfe);
+            --dark-bg: #0a0a0f;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --text-primary: #ffffff;
+            --text-secondary: #b8b8d1;
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+        }
+
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Noto Sans JP', 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
             line-height: 1.8;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            background-attachment: fixed;
-            color: #1a1a2e;
-            min-height: 100vh;
-            padding: 40px 20px;
-            position: relative;
             overflow-x: hidden;
         }
 
+        /* Animated Background */
         body::before {
             content: '';
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3), transparent 50%),
-                radial-gradient(circle at 80% 80%, rgba(255, 119, 198, 0.3), transparent 50%),
-                radial-gradient(circle at 40% 20%, rgba(138, 180, 248, 0.3), transparent 50%);
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .name {
-            font-size: clamp(32px, 6vw, 64px);
-            font-weight: 800;
-            text-align: center;
-            margin: 0 0 60px 0;
-            background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            letter-spacing: -0.02em;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 24px;
-            padding: 40px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow:
-                0 8px 32px 0 rgba(31, 38, 135, 0.2),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: fadeInUp 0.8s ease-out backwards;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow:
-                0 16px 48px 0 rgba(31, 38, 135, 0.3),
-                inset 0 1px 0 0 rgba(255, 255, 255, 0.5);
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .card:nth-child(2) {
-            animation-delay: 0.1s;
-        }
-
-        .card:nth-child(3) {
-            animation-delay: 0.2s;
-        }
-
-        .card:nth-child(4) {
-            animation-delay: 0.3s;
-        }
-
-        .card:nth-child(5) {
-            animation-delay: 0.4s;
-        }
-
-        .card:nth-child(6) {
-            animation-delay: 0.5s;
-        }
-
-        h1 {
-            color: #ffffff;
-            font-size: clamp(24px, 4vw, 32px);
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -0.01em;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: #ffffff;
-            font-size: clamp(20px, 3vw, 26px);
-            font-weight: 700;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        h2::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 24px;
-            background: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0.6));
-            border-radius: 3px;
-        }
-
-        p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 16px;
-            font-weight: 400;
-            line-height: 1.9;
-            margin-bottom: 16px;
-        }
-
-        .section {
-            margin-bottom: 0;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        li {
-            color: rgba(255, 255, 255, 0.92);
-            font-size: 15px;
-            padding: 12px 0 12px 32px;
-            position: relative;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-        }
-
-        li:hover {
-            background: rgba(255, 255, 255, 0.1);
-            padding-left: 36px;
-        }
-
-        li::before {
-            content: '▹';
-            position: absolute;
-            left: 12px;
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 18px;
-            transition: all 0.3s ease;
-        }
-
-        li:hover::before {
-            color: #ffffff;
-            transform: translateX(4px);
-        }
-
-        .link-button {
-            display: inline-block;
-            margin: 60px auto 20px;
-            padding: 18px 48px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            text-align: center;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 18px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            box-shadow:
-                0 10px 30px rgba(102, 126, 234, 0.4),
-                inset 0 1px 0 rgba(255, 255, 255, 0.3);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .link-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.6s ease;
+            background: radial-gradient(circle at 20% 50%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(245, 87, 108, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: gradientShift 15s ease infinite;
         }
 
-        .link-button:hover::before {
-            left: 100%;
+        @keyframes gradientShift {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
         }
 
-        .link-button:hover {
-            transform: translateY(-4px) scale(1.05);
-            box-shadow:
-                0 20px 40px rgba(102, 126, 234, 0.5),
-                inset 0 1px 0 rgba(255, 255, 255, 0.4);
-            border-color: rgba(255, 255, 255, 0.4);
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            overflow: hidden;
         }
 
-        .link-button:active {
-            transform: translateY(-2px) scale(1.02);
+        .hero-logo {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            margin-bottom: 3rem;
+            animation: fadeInScale 1.2s ease-out;
+            filter: drop-shadow(0 20px 60px rgba(102, 126, 234, 0.4));
         }
 
-        .button-container {
-            text-align: center;
-            animation: fadeInUp 0.8s ease-out 0.6s backwards;
-        }
-
-        @keyframes fadeInDown {
+        @keyframes fadeInScale {
             from {
                 opacity: 0;
-                transform: translateY(-30px);
+                transform: scale(0.9) translateY(30px);
             }
 
             to {
                 opacity: 1;
-                transform: translateY(0);
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .hero-name {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            text-align: center;
+            background: var(--rainbow-gradient);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowFlow 8s linear infinite, fadeInUp 1s ease-out 0.3s both;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes rainbowFlow {
+            to {
+                background-position: 200% center;
             }
         }
 
@@ -258,185 +129,300 @@
             }
         }
 
-        /* Small Mobile Devices (up to 480px) */
-        @media (max-width: 480px) {
-            body {
-                padding: 15px 10px;
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+            opacity: 0.6;
+        }
+
+        .scroll-indicator::after {
+            content: '↓';
+            font-size: 2rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(10px);
+            }
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.6s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(102, 126, 234, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .glass-card:hover::before {
+            left: 100%;
+        }
+
+        /* Section Titles */
+        h1,
+        h2 {
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-gradient);
+            border-radius: 2px;
+        }
+
+        /* Content */
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            line-height: 2;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            color: var(--text-secondary);
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border-radius: 8px;
+        }
+
+        ul li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        ul li:hover {
+            padding-left: 2.5rem;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        ul li:hover::before {
+            color: #f5576c;
+            transform: translateX(5px);
+        }
+
+        /* Links */
+        a {
+            color: #4facfe;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        a:hover {
+            color: #f093fb;
+        }
+
+        /* CTA Button */
+        .link-button {
+            display: inline-block;
+            margin: 3rem auto;
+            padding: 1.2rem 3rem;
+            background: var(--rainbow-gradient);
+            background-size: 200% auto;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+        }
+
+        .link-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .link-button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 20px 60px rgba(245, 87, 108, 0.5);
+            background-position: 100% center;
+        }
+
+        .link-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                min-height: 80vh;
+                padding: 1.5rem;
+            }
+
+            .hero-logo {
+                max-width: 90%;
+                margin-bottom: 2rem;
             }
 
             .container {
-                max-width: 100%;
+                padding: 2rem 1.5rem;
             }
 
-            .name {
-                font-size: 28px;
-                margin-bottom: 30px;
-                line-height: 1.2;
-            }
-
-            .card {
-                padding: 20px 16px;
+            .glass-card {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
                 border-radius: 16px;
-                margin-bottom: 20px;
             }
 
             h1 {
-                font-size: 20px;
-                margin-bottom: 16px;
+                margin-bottom: 1.5rem;
             }
 
             h2 {
-                font-size: 18px;
-                margin-bottom: 14px;
-                padding-left: 16px;
+                margin-bottom: 1.5rem;
             }
 
-            h2::before {
-                width: 4px;
-                height: 20px;
-            }
-
-            p {
-                font-size: 14px;
-                line-height: 1.8;
-                margin-bottom: 12px;
-            }
-
-            li {
-                font-size: 14px;
-                padding: 10px 0 10px 24px;
-            }
-
-            li::before {
-                left: 8px;
-                font-size: 16px;
-            }
-
-            li:hover {
-                padding-left: 28px;
+            ul li {
+                font-size: 0.95rem;
+                padding: 0.6rem 0;
+                padding-left: 1.5rem;
             }
 
             .link-button {
-                padding: 14px 32px;
-                font-size: 15px;
-                margin: 40px auto 20px;
-                width: calc(100% - 40px);
+                width: 100%;
                 max-width: 300px;
-            }
-        }
-
-        /* Mobile Devices (481px to 768px) */
-        @media (min-width: 481px) and (max-width: 768px) {
-            body {
-                padding: 20px 15px;
-            }
-
-            .container {
-                max-width: 100%;
-            }
-
-            .card {
-                padding: 28px 24px;
-                border-radius: 20px;
-                margin-bottom: 24px;
-            }
-
-            .name {
-                margin-bottom: 40px;
-            }
-
-            h1 {
-                font-size: 24px;
-            }
-
-            h2 {
-                font-size: 20px;
+                padding: 1rem 2rem;
+                font-size: 1.1rem;
             }
 
             p {
-                font-size: 15px;
-            }
-
-            li {
-                font-size: 15px;
-            }
-
-            .link-button {
-                padding: 16px 40px;
-                font-size: 16px;
-                margin: 50px auto 20px;
+                font-size: 1rem;
             }
         }
 
-        /* Tablet Devices (769px to 1024px) */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            body {
-                padding: 30px 20px;
+        @media (max-width: 480px) {
+            .hero-name {
+                font-size: 2rem;
             }
 
-            .container {
-                max-width: 720px;
+            .glass-card {
+                padding: 1.5rem 1rem;
             }
 
-            .card {
-                padding: 35px 30px;
-            }
-
-            .name {
-                margin-bottom: 50px;
+            ul li {
+                font-size: 0.9rem;
             }
         }
 
-        /* Large Desktop (1025px and up) */
-        @media (min-width: 1025px) {
-            .container {
-                max-width: 900px;
-            }
-
-            .card:hover {
-                transform: translateY(-8px);
-            }
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
         }
 
-        /* Landscape orientation adjustments for mobile */
-        @media (max-width: 768px) and (orientation: landscape) {
-            body {
-                padding: 15px 20px;
-            }
-
-            .name {
-                margin-bottom: 30px;
-            }
-
-            .card {
-                margin-bottom: 20px;
-            }
-        }
-
-        /* High DPI displays */
-        @media (-webkit-min-device-pixel-ratio: 2),
-        (min-resolution: 192dpi) {
-            .card {
-                border-width: 0.5px;
-            }
-        }
-
-        /* Reduced motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        /* Selection */
+        ::selection {
+            background: rgba(102, 126, 234, 0.3);
+            color: white;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="name">和田壮平 Sohei Wada</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <img src="img/001-001_LOGO.png" alt="Amber Light Inc." class="hero-logo">
+        <h1 class="hero-name">和田壮平 Sohei Wada</h1>
+        <div class="scroll-indicator"></div>
+    </section>
 
-        <div class="card">
+    <!-- Main Content -->
+    <div class="container">
+        <div class="glass-card">
             <h1>【プロフィール】</h1>
             <p>1981年5月29日　宮崎県都城市生まれ。<br>
                 2002年に株式会社エスエルアイに入社して以降、グランドハイアット福岡での統括マネージャーや第二制作部副部長として、イベントの企画立案から制作運営、チームマネジメントまで、幅広い業務を担当して参りました。<br>
@@ -444,94 +430,131 @@
                 2021年からは新型コロナウイルス感染症の集団接種会場の運営責任者として、地域社会への貢献も行っています。<br>
                 また、2022年には琉球ホテル＆リゾート名城ビーチの立ち上げ及びテクニカル責任者として、新たな挑戦を経験しました。<br>
                 教育分野にも情熱を注ぎ、福岡ベルエポック美容専門学校で講師を務めるなど、次世代の技術者育成にも力を入れています。<br>
-
+                <br>
                 さらに2025年1月からは、中学校男子バスケットボール部のアシスタントコーチとしても活動を開始。<br>
                 これまで培ってきたマネジメント経験や、自身が学生時代にバスケットボール部キャプテンとして得た経験を活かし、「プレイヤーズセンタード」の理念のもと、育成年代に寄り添った指導力を発揮しています。<br>
-                こうした多岐にわたる経験と専門性を通じて、皆様のプロジェクトに幅広く貢献できることを楽しみにしております。</p>
+                こうした多岐にわたる経験と専門性を通じて、皆様のプロジェクトに幅広く貢献できることを楽しみにしております。
+            </p>
         </div>
 
-        <div class="card">
+        <div class="glass-card">
             <h2>【経歴】</h2>
-            <div class="section">
-                <ul>
-                    <li>2000年3月　宮崎県立都城商業学校　情報処理科　卒業</li>
-                    <li>2002年3月　福岡スクールオブミュージック専門学校 PA専攻卒業</li>
-                    <li>2002年4月　株式会社エスエルアイ　入社 → グランドハイアット福岡へ配属</li>
-                    <li>2008年4月　グランドハイアット福岡　統括マネージャー就任→ 第二制作部　副部長　就任</li>
-                    <li>2012年4月　人材開発部　部長　就任</li>
-                    <li>2024年10月　KYUSHU ART FES 実行委員会　発足</li>
-                    <li>2025年6月　福岡市　部活動支援員就任（福岡中学校男子バスケットボール部）</li>
-                </ul>
-            </div>
+            <ul>
+                <li>2000年3月　宮崎県立都城商業学校　情報処理科　卒業</li>
+                <li>2002年3月　福岡スクールオブミュージック専門学校 PA専攻卒業</li>
+                <li>2002年4月　株式会社エスエルアイ　入社 → グランドハイアット福岡へ配属</li>
+                <li>2008年4月　グランドハイアット福岡　統括マネージャー就任→ 第二制作部　副部長　就任</li>
+                <li>2012年4月　人材開発部　部長　就任</li>
+                <li>2024年10月　KYUSHU ART FES 実行委員会　発足</li>
+                <li>2025年6月　福岡市　部活動支援員就任（福岡中学校男子バスケットボール部）</li>
+                <li>2025年6月　Amber Light Inc. CEO 就任</li>
+                <li style="list-style: none; padding-left: 0; margin-top: 1.5rem;">
+                    <div style="text-align: left;">
+                        <a href="https://prtimes.jp/main/html/rd/p/000000002.000167574.html" target="_blank"
+                            rel="noopener" class="link-button"
+                            style="margin: 0; padding: 0.8rem 2rem; font-size: 1rem;">創業プレスリリースはこちら</a>
+                    </div>
+                </li>
+            </ul>
         </div>
 
-        <div class="card">
+        <div class="glass-card">
             <h2>【イベント実績】</h2>
-            <div class="section">
-                <ul>
-                    <li>キャナルシティ博多　イベント/ライブ運営</li>
-                    <li>キャナルサーカス（野外）ライティングデザイン／音響照明現場責任者</li>
-                    <li>グランドハイアット福岡　イベント企画、立案、制作運営</li>
-                    <li>中洲ジャズ　清流公園ステージ（野外）舞台監督／ステージ技術責任者</li>
-                    <li>マリンメッセ福岡　専門学校卒業進級展　舞台監督／進行制作</li>
-                    <li>世界水泳福岡　開会式　音響照明現場責任者</li>
-                    <li>福岡アジアコレクション　ファッションショー（IN福岡国際センター）ブランド映像制作＆演出プロデュース</li>
-                    <li>福岡市＆株式会社クォンタイズ共催　FADS＝Fukuoka Asia Designers Show　音響照明責任者
-                    <li>その他、各種コンサート、イベント、式典等音響照明</li>
-                    <li>グランドハイアット福岡　イベント企画／立案／制作運営</li>
-                    <li>沖縄琉球ホテル＆リゾート　名城ビーチ　立ち上げ時テクニカル責任者</li>
-                    <li>アルコールインターロックシステム展示会　制作運営統括兼現場責任者</li>
-                    <li>COLIVE FUKUOKA 2024 World Nomad Conference Stage Manager（舞台監督・音響照明責任者）</li>
-                </ul>
-            </div>
+            <ul>
+                <li>キャナルシティ博多　イベント/ライブ運営</li>
+                <li>キャナルサーカス（野外）ライティングデザイン／音響照明現場責任者</li>
+                <li>グランドハイアット福岡　イベント企画、立案、制作運営</li>
+                <li>中洲ジャズ　清流公園ステージ（野外）舞台監督／ステージ技術責任者</li>
+                <li>マリンメッセ福岡　専門学校卒業進級展　舞台監督／進行制作</li>
+                <li>世界水泳福岡　開会式　音響照明現場責任者</li>
+                <li>福岡アジアコレクション　ファッションショー（IN福岡国際センター）ブランド映像制作＆演出プロデュース</li>
+                <li>福岡市＆株式会社クォンタイズ共催　FADS＝Fukuoka Asia Designers Show　音響照明責任者</li>
+                <li>その他、各種コンサート、イベント、式典等音響照明</li>
+                <li>グランドハイアット福岡　イベント企画／立案／制作運営</li>
+                <li>沖縄琉球ホテル＆リゾート　名城ビーチ　立ち上げ時テクニカル責任者</li>
+                <li>アルコールインターロックシステム展示会　制作運営統括兼現場責任者</li>
+                <li>COLIVE FUKUOKA 2024 World Nomad Conference Stage Manager（舞台監督・音響照明責任者）</li>
+            </ul>
         </div>
 
-        <div class="card">
+        <div class="glass-card">
             <h2>【官公庁受託業務】</h2>
-            <div class="section">
-                <ul>
-                    <li>厚生労働省 福岡労働局主催 若年者地域連携事業 情報通信業オンライン合同会社説明会 システム責任者</li>
-                    <li>厚生労働省 福岡労働局主催 若年者地域連携事業 UIJターン就職支援オンライン合同会社説明会 システム責任者</li>
-                    <li>福岡県雇用対策協会主催 採用力向上セミナー システム責任者</li>
-                    <li>福岡市経済観光文化局文化振興課主催 福岡市まちなかパフォーマンス応援事業「FUKUOKA STREET LIVE」音響責任者・運営サポート</li>
-                    <li>宇美町集団接種会場運営責任者（新型コロナウイルス感染症関連事業）</li>
-                    <li>FaN（Fukuoka Art Next）レセプションパーティー　音響照明責任者</li>
-                </ul>
-            </div>
+            <ul>
+                <li>厚生労働省 福岡労働局主催 若年者地域連携事業 情報通信業オンライン合同会社説明会 システム責任者</li>
+                <li>厚生労働省 福岡労働局主催 若年者地域連携事業 UIJターン就職支援オンライン合同会社説明会 システム責任者</li>
+                <li>福岡県雇用対策協会主催 採用力向上セミナー システム責任者</li>
+                <li>福岡市経済観光文化局文化振興課主催 福岡市まちなかパフォーマンス応援事業「FUKUOKA STREET LIVE」音響責任者・運営サポート</li>
+                <li>宇美町集団接種会場運営責任者（新型コロナウイルス感染症関連事業）</li>
+                <li>FaN（Fukuoka Art Next）レセプションパーティー　音響照明責任者</li>
+            </ul>
         </div>
 
-        <div class="card">
+        <div class="glass-card">
             <h2>【講師・講話歴】</h2>
-            <div class="section">
-                <ul>
-                    <li>福岡県若者就職支援センター主催 地元企業魅力体験見学会 実施責任者　講話担当</li>
-                    <li>株式会社テレビ西日本主催 とびうめ探求　講師就任</li>
-                    <li>福岡ベルエポック美容専門学校　ブライダル科　音響照明テクニカル講師就任</li>
-                    <li>中村国際ホテル専門学校　ブライダル専攻　音響照明テクニカル講師就任</li>
-                    <li>福岡ホテル・ウエディング＆製菓調理専門学校 講師就任</li>
-                    <li>マイナビ探求学習プログラム「locus」講師</li>
-                </ul>
+            <ul>
+                <li>福岡県若者就職支援センター主催 地元企業魅力体験見学会 実施責任者　講話担当</li>
+                <li>株式会社テレビ西日本主催 とびうめ探求　講師就任</li>
+                <li>福岡ベルエポック美容専門学校　ブライダル科　音響照明テクニカル講師就任</li>
+                <li>中村国際ホテル専門学校　ブライダル専攻　音響照明テクニカル講師就任</li>
+                <li>福岡ホテル・ウエディング＆製菓調理専門学校 講師就任</li>
+                <li>マイナビ探求学習プログラム「locus」講師</li>
+            </ul>
+        </div>
+
+        <div class="glass-card">
+            <h2>【資格】</h2>
+            <ul>
+                <li>2018年 公益社団法人 日本照明家協会　舞台・テレビジョン照明技術者　１級取得</li>
+                <li>2021年 5月　衛生管理者第二種　取得</li>
+                <li>2023年11月　テールゲートリフター特別教育　インストラクター就任</li>
+                <li>2024年 1月　足場の組立て等の業務に関わる特別教育　インストラクター就任</li>
+                <li>2024年 2月　フルハーネス型墜落制止用器具特別教育　インストラクター就任</li>
+                <li>2025年 4月　日本バスケットボール協会 公認E級審判　ライセンス取得</li>
+                <li>2025年 4月　日本バスケットボール協会 公認E級コーチ　ライセンス取得</li>
+                <li>2025年 6月　日本バスケットボール協会 公認D級コーチ　ライセンス取得</li>
+            </ul>
+        </div>
+
+        <div class="glass-card">
+            <h2>【レンタル開始！】</h2>
+            <h3 style="color: var(--text-primary); font-size: 1.3rem; margin-bottom: 1.5rem; font-weight: 600;">
+                地域の皆さまへ感謝を込めて</h3>
+            <p>このたび、地域の方よりご厚意で<br>
+                「molten デジタイマ110X」を寄贈いただきました！<br>
+                感謝してもしきれません！</p>
+            <p>せっかくのご厚意を弊社倉庫に眠らせておくのではなく、<br>
+                地域の皆さまに役立てていただきたい──そんな思いから、<br>
+                寄贈いただいた方にご相談したところ、快くご賛同いただき、<br>
+                このたび地域限定ではありますがレンタルを開始することになりました。</p>
+            <p>「地域で使われてこそ意味がある」 そんな想いを大切にしながら、これからもスポーツやイベントを通じて、地域コミュニティに貢献してまいります。</p>
+            <p>レンタルご希望の方は<br>
+                以下の「今すぐレンタルする」ボタンを選択いただくか<br>
+                弊社インスタまでメッセージお待ちしております！</p>
+            <div class="button-container">
+                <a href="https://square.link/u/3TBdtiLM" target="_blank" rel="noopener"
+                    class="link-button">今すぐレンタルする</a>
             </div>
         </div>
 
-        <div class="card">
-            <h2>【資格】</h2>
-            <div class="section">
-                <ul>
-                    <li>2018年 公益社団法人 日本照明家協会　舞台・テレビジョン照明技術者　１級取得</li>
-                    <li>2021年 5月　衛生管理者第二種　取得</li>
-                    <li>2023年11月　テールゲートリフター特別教育　インストラクター就任</li>
-                    <li>2024年 1月　足場の組立て等の業務に関わる特別教育　インストラクター就任</li>
-                    <li>2024年 2月　フルハーネス型墜落制止用器具特別教育　インストラクター就任</li>
-                    <li>2025年 4月　日本バスケットボール協会 公認E級審判　ライセンス取得</li>
-                    <li>2025年 4月　日本バスケットボール協会 公認E級コーチ　ライセンス取得</li>
-                    <li>2025年 6月　日本バスケットボール協会 公認D級コーチ　ライセンス取得</li>
-                </ul>
+        <div class="glass-card">
+            <h2>【ご支援のお願い】</h2>
+            <p>Amber Lightでは、スポーツやイベントを通じた地域貢献をより一層広げていくために、<br>
+                寄付の受付を開始いたしました。</p>
+            <p>寄付は、バスケットボールやイベント運営に必要な備品購入、地域活動の継続など、<br>
+                弊社の事業を持続的に展開していくための大切な資金として活用させていただきます。</p>
+            <p>ご賛同いただける方は、下記ボタンよりお手続きください。</p>
+            <p style="color: var(--text-primary); font-weight: 600; font-size: 1.1rem; margin-top: 1.5rem;">
+                皆さまからの温かいご支援が、地域にあかりを灯す大きな力となります。</p>
+            <div class="button-container">
+                <a href="https://square.link/u/zq0JR97F" target="_blank" rel="noopener"
+                    class="link-button">寄付ページはこちら</a>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); opacity: 0.5; margin-top: 1rem;">Powered by
+                    Square</p>
             </div>
         </div>
 
         <div class="button-container">
-            <a href="https://user.meet-meet.com/?c=df627beb4f04df37ea8ab5cc79385163&a=39473&b=22575&d=poiuytrewqlkjhgfdsa"
+            <a href="https://user.meet-meet.com/?c=b7d1ea725cc51d6941931d5bdec1a6d2&a=39473&b=23668&d=poiuytrewqlkjhgfdsa"
                 class="link-button">More info</a>
         </div>
     </div>
